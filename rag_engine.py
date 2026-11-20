@@ -39,12 +39,12 @@ def build_vectors (chunks, model_name = "all-MiniLM-L6-v2"):     #all-mini its i
 
 #call loadpdf, chunk, embedding
 def load_base (pdf_path = "college_docs"):
-  chunks = []
-  for pdf in Path(pdf_path).glob("*.pdf"):
-    full_text = load_pdf(pdf)
-    chunks.extend(create_chunks(full_text))
-  index, embed_model = build_vectors(chunks)
-  return index, embed_model, chunks
+    chunks = []
+    for pdf in Path(pdf_path).glob("*.pdf"):
+        full_text = load_pdf(pdf)
+        chunks.extend(create_chunks(full_text))
+    index, embed_model = build_vectors(chunks)
+    return index, embed_model, chunks
 
 #retrive
 def retrive_content (question, embed_model, chunks, index, num_chunks=3):
